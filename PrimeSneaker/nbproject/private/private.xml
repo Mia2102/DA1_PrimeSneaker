@@ -3,11 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/PRO1041/PrimeSneaker_OK/PrimeSneaker/src/com/prime/main/Main.java</file>
             <file>file:/D:/PRO1041/PrimeSneaker_OK/PrimeSneaker/src/com/prime/form/Voucher.java</file>
             <file>file:/D:/PRO1041/PrimeSneaker_OK/PrimeSneaker/src/com/prime/form/ManageSneaker.java</file>
             <file>file:/D:/PRO1041/PrimeSneaker_OK/PrimeSneaker/src/com/prime/form/ManageStaff.java</file>
             <file>file:/D:/PRO1041/PrimeSneaker_OK/PrimeSneaker/src/com/prime/form/ManageOrder.java</file>
+=======
+            <file>file:/D:/Pro1041/PrimeSneacker/QLBH_PrimeSneakers/PrimeSneaker/src/com/prime/main/Main.java</file>
+>>>>>>> a26c8f28bafbfc0c6373de8842021f9eb692948c
         </group>
     </open-files>
 </project-private>
