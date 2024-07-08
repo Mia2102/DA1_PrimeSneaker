@@ -77,14 +77,14 @@ public class Main extends javax.swing.JFrame {
                 MenuItem item = (MenuItem) com;
                 PopupMenu popup = new PopupMenu(Main.this, item.getIndex(), item.getEventSelected(), item.getMenu().getSubMenu());
                 int x = Main.this.getX() + 52;
-                int y = Main.this.getY() + com.getY() + 86;
+                int y = Main.this.getY() + com.getY() + 500;
                 popup.setLocation(x, y);
                 popup.setVisible(true);
             }
         });
         menu.initMenuItem();
         bg.add(menu, "w 230!, spany 2");    // Span Y 2cell
-        bg.add(header, "h 50!, wrap");
+        bg.add(header, "h 58!, wrap");
         bg.add(main, "w 100%, h 100%");
         TimingTarget target = new TimingTargetAdapter() {
             @Override
@@ -137,7 +137,7 @@ public class Main extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản lý Bán Hàng Giày");
 
-        bg.setBackground(new java.awt.Color(245, 245, 245));
+        bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setOpaque(true);
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
