@@ -81,12 +81,13 @@ create table Voucher
 (
 	voucher_id int identity(1,1) primary key,
 	voucher_code varchar(10) unique,
-	quantity int check(quantity >= 0),
+	discount_rate float check(discount_rate >= 0 and discount_rate <= 100),
+	discount_amount money check(discount_amount >= 0),
+	--  max_discout lưu số tiền hoặc %  tối đa mà 1 voucher có thể giảm giá cho đơn hàng khi sử dụng
+	max_discount float check(max_discount >= 0),
+	min_order_value money check(min_order_value >= 0),
 	[start_date] date,
 	end_date date check(end_date <= getdate()),
-	[type] varchar(10),
-	[value] float check([value] >=0 and [value] <= 100),
-	[status] nvarchar(30),
 	created_at date default getdate(),
 	updated_at date default getdate(),
 	created_by int,
@@ -154,6 +155,10 @@ go
 create table Sneaker
 (
 	sneaker_id int identity(1,1) primary key,
+	brand_id int,
+	category_id int,
+	sole_id int,
+	material_id int,
 	sneaker_name nvarchar(100),
 	[description] nvarchar(200),
 	created_at date default getdate(),
@@ -169,10 +174,6 @@ create table SneakerDetail
 	sneaker_id int,
 	size_id int,
 	color_id int,
-	brand_id int,
-	category_id int,
-	sole_id int,
-	material_id int,
 	sneaker_detail_code varchar(10) unique,
 	gender nvarchar(20),
 	price money check(price > 0),
@@ -205,6 +206,7 @@ create table [Order]
 	[user_id] int,
 	customer_id int,
 	voucher_id int,
+	payment_method_id int,
 	order_qr_code varchar(50),
 	total_cost money check(total_cost >= 0),
 	[change] money check([change] >= 0),
@@ -221,6 +223,7 @@ create table OrderDetail
 (
 	sneaker_detail_id int not null,
 	order_id int not null,
+	exchange_id int not null,
 	quantity int check(quantity >= 0),
 	price money check(price > 0),
 	total_cost money check(total_cost > 0),
@@ -232,25 +235,23 @@ create table OrderDetail
 )
 go
 
-create table OrderHistory
-(
-	order_history_id int identity(1,1) primary key,
-	order_id int,
-	total_cost money check(total_cost > 0),
-	[status] nvarchar(50),
-	created_at date default getdate(),
-	updated_at date default getdate(),
-	created_by int,
-	updated_by int,
-	deleted bit default 1
-)
-go
+--create table OrderHistory
+--(
+--	order_history_id int identity(1,1) primary key,
+--	order_id int,
+--	total_cost money check(total_cost > 0),
+--	[status] nvarchar(50),
+--	created_at date default getdate(),
+--	updated_at date default getdate(),
+--	created_by int,
+--	updated_by int,
+--	deleted bit default 1
+--)
+--go
 
 create table Exchange
 (
 	exchange_id int identity(1,1) primary key,
-	order_id int,
-	sneaker_detail_id int,
 	reason nvarchar(100),
 	[status] nvarchar(50),
 	note nvarchar(255),
@@ -262,46 +263,70 @@ create table Exchange
 )
 go
 
-create table OrderPayment
-(
-	order_payment_id int identity(1,1) primary key,
-	order_id int,
-	payment_method_id int,
-	total_cost money check(total_cost > 0),
-	created_at date default getdate(),
-	updated_at date default getdate(),
-	created_by int,
-	updated_by int,
-	deleted bit default 1
-)
-go
+--create table OrderPayment
+--(
+--	order_payment_id int identity(1,1) primary key,
+--	order_id int,
+--	payment_method_id int,
+--	total_cost money check(total_cost > 0),
+--	created_at date default getdate(),
+--	updated_at date default getdate(),
+--	created_by int,
+--	updated_by int,
+--	deleted bit default 1
+--)
+--go
 
 alter table [Image] add foreign key (sneaker_detail_id) references SneakerDetail (sneaker_detail_id)
 
 alter table SneakerDetail add foreign key (sneaker_id) references Sneaker (sneaker_id)
 alter table SneakerDetail add foreign key (size_id) references Size (size_id)
 alter table SneakerDetail add foreign key (color_id) references Color (color_id)
-alter table SneakerDetail add foreign key (brand_id) references Brand (brand_id)
-alter table SneakerDetail add foreign key (category_id) references Category (category_id)
-alter table SneakerDetail add foreign key (sole_id) references Sole (sole_id)
-alter table SneakerDetail add foreign key (material_id) references Material (material_id)
+--alter table SneakerDetail add foreign key (brand_id) references Brand (brand_id)
+--alter table SneakerDetail add foreign key (category_id) references Category (category_id)
+--alter table SneakerDetail add foreign key (sole_id) references Sole (sole_id)
+--alter table SneakerDetail add foreign key (material_id) references Material (material_id)
+
+alter table Sneaker add foreign key (brand_id) references Brand (brand_id)
+alter table Sneaker add foreign key (category_id) references Category (category_id)
+alter table Sneaker add foreign key (sole_id) references Sole (sole_id)
+alter table Sneaker add foreign key (material_id) references Material (material_id)
 
 alter table OrderDetail add foreign key (sneaker_detail_id) references SneakerDetail (sneaker_detail_id)
 alter table OrderDetail add foreign key (order_id) references [Order] (order_id)
+alter table OrderDetail add foreign key (exchange_id) references Exchange (exchange_id)
 
-alter table Exchange add foreign key (order_id) references [Order] (order_id)
-alter table Exchange add foreign key (sneaker_detail_id) references SneakerDetail (sneaker_detail_id)
+--alter table Exchange add foreign key (order_id) references [Order] (order_id)
+--alter table Exchange add foreign key (sneaker_detail_id) references SneakerDetail (sneaker_detail_id)
 
 alter table [Order] add foreign key ([user_id]) references [User] ([user_id])
 alter table [Order] add foreign key (customer_id) references Customer (customer_id)
 alter table [Order] add foreign key (voucher_id) references Voucher (voucher_id)
+alter table [Order] add foreign key (payment_method_id) references PaymentMethod (payment_method_id)
 
 alter table [User] add foreign key (role_id) references [Role] (role_id)
 
-alter table OrderPayment add foreign key (order_id) references [Order] (order_id)
-alter table OrderPayment add foreign key (payment_method_id) references PaymentMethod (payment_method_id)
+--alter table OrderPayment add foreign key (order_id) references [Order] (order_id)
+--alter table OrderPayment add foreign key (payment_method_id) references PaymentMethod (payment_method_id)
+drop table OrderDetail
+drop table SneakerDetail
+drop table Sneaker
+drop table [Image]
+drop table Brand
+drop table Category
+drop table Color
+drop table Customer
+drop table Exchange
+drop table Material
+drop table [Order]
+drop table PaymentMethod
+drop table [Role]
+drop table [User]
+drop table Size
+drop table Sole
+drop table Voucher
 
-alter table OrderHistory add foreign key (order_id) references [Order] (order_id)
+
 
 
 insert into Brand(brand_name) values('Nike'), ('Adidas'), ('Li-ning'), ('Converse'), ('MLB'), ('Fila'), ('New Balance'), ('Jordan'), ('Puma'), ('VANS'), ('Reebok')
