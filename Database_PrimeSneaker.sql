@@ -155,6 +155,10 @@ go
 create table Sneaker
 (
 	sneaker_id int identity(1,1) primary key,
+	brand_id int,
+	category_id int,
+	sole_id int,
+	material_id int,
 	sneaker_name nvarchar(100),
 	[description] nvarchar(200),
 	created_at date default getdate(),
@@ -170,10 +174,6 @@ create table SneakerDetail
 	sneaker_id int,
 	size_id int,
 	color_id int,
-	brand_id int,
-	category_id int,
-	sole_id int,
-	material_id int,
 	sneaker_detail_code varchar(10) unique,
 	gender nvarchar(20),
 	price money check(price > 0),
@@ -282,10 +282,15 @@ alter table [Image] add foreign key (sneaker_detail_id) references SneakerDetail
 alter table SneakerDetail add foreign key (sneaker_id) references Sneaker (sneaker_id)
 alter table SneakerDetail add foreign key (size_id) references Size (size_id)
 alter table SneakerDetail add foreign key (color_id) references Color (color_id)
-alter table SneakerDetail add foreign key (brand_id) references Brand (brand_id)
-alter table SneakerDetail add foreign key (category_id) references Category (category_id)
-alter table SneakerDetail add foreign key (sole_id) references Sole (sole_id)
-alter table SneakerDetail add foreign key (material_id) references Material (material_id)
+--alter table SneakerDetail add foreign key (brand_id) references Brand (brand_id)
+--alter table SneakerDetail add foreign key (category_id) references Category (category_id)
+--alter table SneakerDetail add foreign key (sole_id) references Sole (sole_id)
+--alter table SneakerDetail add foreign key (material_id) references Material (material_id)
+
+alter table Sneaker add foreign key (brand_id) references Brand (brand_id)
+alter table Sneaker add foreign key (category_id) references Category (category_id)
+alter table Sneaker add foreign key (sole_id) references Sole (sole_id)
+alter table Sneaker add foreign key (material_id) references Material (material_id)
 
 alter table OrderDetail add foreign key (sneaker_detail_id) references SneakerDetail (sneaker_detail_id)
 alter table OrderDetail add foreign key (order_id) references [Order] (order_id)
@@ -303,6 +308,23 @@ alter table [User] add foreign key (role_id) references [Role] (role_id)
 
 --alter table OrderPayment add foreign key (order_id) references [Order] (order_id)
 --alter table OrderPayment add foreign key (payment_method_id) references PaymentMethod (payment_method_id)
+drop table OrderDetail
+drop table SneakerDetail
+drop table Sneaker
+drop table [Image]
+drop table Brand
+drop table Category
+drop table Color
+drop table Customer
+drop table Exchange
+drop table Material
+drop table [Order]
+drop table PaymentMethod
+drop table [Role]
+drop table [User]
+drop table Size
+drop table Sole
+drop table Voucher
 
 
 
