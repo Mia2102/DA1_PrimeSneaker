@@ -308,23 +308,25 @@ alter table [User] add foreign key (role_id) references [Role] (role_id)
 
 --alter table OrderPayment add foreign key (order_id) references [Order] (order_id)
 --alter table OrderPayment add foreign key (payment_method_id) references PaymentMethod (payment_method_id)
-drop table OrderDetail
-drop table SneakerDetail
-drop table Sneaker
-drop table [Image]
-drop table Brand
-drop table Category
-drop table Color
-drop table Customer
-drop table Exchange
-drop table Material
-drop table [Order]
-drop table PaymentMethod
-drop table [Role]
-drop table [User]
-drop table Size
-drop table Sole
-drop table Voucher
+
+
+--drop table OrderDetail
+--drop table SneakerDetail
+--drop table Sneaker
+--drop table [Image]
+--drop table Brand
+--drop table Category
+--drop table Color
+--drop table Customer
+--drop table Exchange
+--drop table Material
+--drop table [Order]
+--drop table PaymentMethod
+--drop table [Role]
+--drop table [User]
+--drop table Size
+--drop table Sole
+--drop table Voucher
 
 
 
@@ -534,3 +536,22 @@ insert into Sneaker(sneaker_name, [description]) values
 (N'Giày Vans Knu Skool Red White', N'Lựa chọn hoàn hảo cho những ai yêu thích phong cách đường phố và thể thao')
 
 select * from Sneaker
+
+-- Nhập dữ liệu Role
+insert into [Role](role_name)
+values (N'Quản lý'),
+(N'Nhân viên')
+select * from [Role]
+
+--Nhập dữ liệu User
+insert into [User](role_id, user_code, full_name, gender, date_of_birth, phone_number, [address], email, account_name, [password], [status])
+values (3, 'NV001', N'Bùi Minh Hiếu', 1, '1997-09-11', '0975416197', N'Đan Phượng - Hà Nội', 'hieubm@gmail.com', 'hieu119', 'hieu1997', N'Đang làm việc'),
+(4, 'NV002', N'Phạm Thị Lan Anh', 0, '2003-05-22', '0933678422', N'Đan Phượng - Thái Bình', 'lananhpt@gmail.com', 'lananh2003', 'lananh2003', N'Đang làm việc'),
+(4, 'NV003', N'Phạm Thị Hường', 0, '1997-08-27', '0984783253', N'Sóc Sơn - Hà Nội', 'huongpt@gmail.com', 'huong2708', 'huong1997', N'Đã nghỉ việc'),
+(4, 'NV004', N'Trần Thị Ánh Quỳnh', 0, '2002-3-22', '0830003212', N'Phủ Lý - Hà Nam', 'quynhtta@gmail.com', 'quynh2002', 'quynh123', N'Đang làm việc'),
+(4, 'NV005', N'Phan Quang Hảo', 1, '1998-04-11', '0975411998', N'Lục Nam - Bắc Giang', 'haopq@gmail.com', 'hao222', 'haove1998', N'Đang làm việc'),
+(4, 'NV006', N'Hoàng Văn Thảnh', 1, '2000-02-19', '0333567843', N'Vĩnh Yên Vĩnh Phúc', 'thanhhv@gmail.com', 'thanh2000', 'thanh123', N'Đang làm việc'),
+(3, 'NV007', N'Nguyễn Minh Hiền', 0, '1991-03-11', '0973234323', N'Hoàng Mai - Hà Nội', 'hienmn@gmail.com', 'hien1991', 'hien12345', N'Đã nghỉ việc'),
+(4, 'NV008', N'Hoàng Kim Bảo', 1, '1999-09-21', '0975323447', N'Chí Linh - Hải Dương', 'baokh@gmail.com', 'bao2222', 'baohq2222', N'Đã nghỉ việc')
+go
+select * from [User]
