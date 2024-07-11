@@ -21,8 +21,6 @@ public class Header extends javax.swing.JPanel {
         lbUserName = new javax.swing.JLabel();
         lbRole = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        buttonBadges1 = new com.prime.swing.ButtonBadges();
-        buttonBadges2 = new com.prime.swing.ButtonBadges();
 
         setBackground(new java.awt.Color(115, 194, 229));
 
@@ -44,14 +42,6 @@ public class Header extends javax.swing.JPanel {
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        buttonBadges1.setForeground(new java.awt.Color(250, 49, 49));
-        buttonBadges1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/prime/icon/notification.png"))); // NOI18N
-        buttonBadges1.setBadges(12);
-
-        buttonBadges2.setForeground(new java.awt.Color(63, 178, 232));
-        buttonBadges2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/prime/icon/message.png"))); // NOI18N
-        buttonBadges2.setBadges(5);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -59,11 +49,7 @@ public class Header extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(cmdMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 345, Short.MAX_VALUE)
-                .addComponent(buttonBadges2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonBadges1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 426, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -71,7 +57,7 @@ public class Header extends javax.swing.JPanel {
                     .addComponent(lbRole, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addComponent(pic, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,8 +70,6 @@ public class Header extends javax.swing.JPanel {
                         .addComponent(lbRole))
                     .addComponent(pic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator1)
-                    .addComponent(buttonBadges1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonBadges2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cmdMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -96,8 +80,6 @@ public class Header extends javax.swing.JPanel {
     }//GEN-LAST:event_cmdMenuActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.prime.swing.ButtonBadges buttonBadges1;
-    private com.prime.swing.ButtonBadges buttonBadges2;
     private com.prime.swing.Button cmdMenu;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lbRole;
