@@ -3,10 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/Pro1041/PrimeSneacker/QLBH_PrimeSneakers/PrimeSneaker/src/com/prime/component/Menu.java</file>
             <file>file:/D:/Pro1041/PrimeSneacker/QLBH_PrimeSneakers/PrimeSneaker/src/com/prime/form/ManageStaff.java</file>
             <file>file:/D:/Pro1041/PrimeSneacker/QLBH_PrimeSneakers/PrimeSneaker/src/com/prime/main/Main.java</file>
             <file>file:/D:/Pro1041/PrimeSneacker/QLBH_PrimeSneakers/PrimeSneaker/src/com/prime/component/Header.java</file>
+=======
+            <file>file:/D:/PRO1041/PrimeSneaker_OK/PrimeSneaker/src/com/prime/swing/MenuButton.java</file>
+            <file>file:/D:/PRO1041/PrimeSneaker_OK/PrimeSneaker/src/com/prime/main/Main.java</file>
+            <file>file:/D:/PRO1041/PrimeSneaker_OK/PrimeSneaker/src/com/prime/model/ModelCard.java</file>
+            <file>file:/D:/PRO1041/PrimeSneaker_OK/PrimeSneaker/src/com/prime/swing/ImageAvatar.java</file>
+            <file>file:/D:/PRO1041/PrimeSneaker_OK/PrimeSneaker/src/com/prime/model/ModelMenu.java</file>
+            <file>file:/D:/PRO1041/PrimeSneaker_OK/PrimeSneaker/src/com/prime/swing/Button.java</file>
+            <file>file:/D:/PRO1041/PrimeSneaker_OK/PrimeSneaker/src/com/prime/form/ManageSneaker.java</file>
+            <file>file:/D:/PRO1041/PrimeSneaker_OK/PrimeSneaker/src/com/prime/form/Login.java</file>
+            <file>file:/D:/PRO1041/PrimeSneaker_OK/PrimeSneaker/src/com/prime/swing/ButtonBadges.java</file>
+            <file>file:/D:/PRO1041/PrimeSneaker_OK/PrimeSneaker/src/com/prime/swing/MenuItem.java</file>
+            <file>file:/D:/PRO1041/PrimeSneaker_OK/PrimeSneaker/src/com/prime/model/ModelStudent.java</file>
+>>>>>>> e961cc4006922504d6a5b0a7edbe7269d0e75cf2
         </group>
     </open-files>
 </project-private>

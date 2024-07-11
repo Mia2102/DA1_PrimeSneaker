@@ -4,6 +4,7 @@ import com.prime.component.Header;
 import com.prime.component.Menu;
 import com.prime.event.EventMenuSelected;
 import com.prime.event.EventShowPopupMenu;
+import com.prime.form.Login;
 import com.prime.form.ManageSneaker;
 import com.prime.form.Statistic;
 import com.prime.form.MainForm;
@@ -144,7 +145,7 @@ public class Main extends javax.swing.JFrame {
         bg.setLayout(bgLayout);
         bgLayout.setHorizontalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1366, Short.MAX_VALUE)
+            .addGap(0, 1354, Short.MAX_VALUE)
         );
         bgLayout.setVerticalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,7 +156,10 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(bg)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,7 +194,7 @@ public class Main extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
 //            @Override
             public void run() {
-                new Main().setVisible(true);
+                new Login().setVisible(true);
             }
         });
     }
