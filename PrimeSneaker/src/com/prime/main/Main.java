@@ -4,6 +4,7 @@ import com.prime.component.Header;
 import com.prime.component.Menu;
 import com.prime.event.EventMenuSelected;
 import com.prime.event.EventShowPopupMenu;
+import com.prime.form.Login;
 import com.prime.form.ManageSneaker;
 import com.prime.form.Statistic;
 import com.prime.form.MainForm;
@@ -193,7 +194,7 @@ public class Main extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
 //            @Override
             public void run() {
-                new Main().setVisible(true);
+                new Login().setVisible(true);
             }
         });
     }
